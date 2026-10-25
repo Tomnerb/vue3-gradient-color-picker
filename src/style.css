@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind utilities;
+
+/* Minimal reset for elements inside the picker (preflight is off so the host app is untouched). */
+.vcp *,
+.vcp *::before,
+.vcp *::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+.vcp button,
+.vcp input {
+  margin: 0;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+.vcp button {
+  padding: 0;
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+}
+.vcp button:disabled {
+  cursor: default;
+}
+.vcp p {
+  margin: 0;
+}
+
+/* Zero specificity so a class passed by the host wins. */
+:where(.vcp-trigger) {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  background: none;
+  cursor: pointer;
+}
+
+.vcp-content {
+  position: relative;
+  z-index: 50;
+  box-sizing: border-box;
+  width: 340px;
+  max-height: 600px;
+  padding: 1.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  background: var(--vcp-bg, #ffffff);
+  color: var(--vcp-text, #111827);
+  font-family: inherit;
+  font-size: 14px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.dark .vcp-content {
+  border-color: #374151;
+  background: var(--vcp-bg, #1f2937);
+  color: var(--vcp-text, #f9fafb);
+}

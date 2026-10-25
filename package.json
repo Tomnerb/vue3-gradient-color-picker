@@ -1,0 +1,62 @@
+{
+  "name": "vue3-gradient-color-picker",
+  "version": "0.1.0",
+  "description": "Vue 3 color picker with solid swatches, HSV/alpha picker and linear/radial/conic gradient editor.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Chandarith Chea",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tomnerb/vue3-gradient-color-picker.git"
+  },
+  "homepage": "https://github.com/Tomnerb/vue3-gradient-color-picker#readme",
+  "bugs": {
+    "url": "https://github.com/Tomnerb/vue3-gradient-color-picker/issues"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "color-picker",
+    "gradient",
+    "gradient-picker",
+    "colorpicker"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vue-tsc -p tsconfig.json",
+    "test": "node --experimental-strip-types --no-warnings test/gradient.test.ts",
+    "prepublishOnly": "npm test && npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "dependencies": {
+    "reka-ui": "^2.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.4",
+    "autoprefixer": "^10.4.27",
+    "lucide-vue-next": "^0.475.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^7.3.1",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.0"
+  }
+}
