@@ -88,3 +88,12 @@ npm run build   # dist/ (ES module, types, style.css)
 ## License
 
 MIT
+
+## Releasing
+
+Publishing runs on GitHub Actions when a `v*` tag is pushed:
+
+```bash
+npm version patch   # or minor / major — bumps package.json and creates the tag
+git push --follow-tags
+```
