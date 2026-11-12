@@ -204,6 +204,8 @@ const stopDragging = () => {
 }
 
 const updateColor = (color: string) => {
+  if (props.disabled) return
+
   currentColor.value = color
   emit('update:modelValue', color)
 }
@@ -470,6 +472,16 @@ onUnmounted(() => {
   stopDraggingG()
 })
 
+watch(() => props.disabled, (disabled) => {
+  if (!disabled) return
+
+  stopDragging()
+  stopDrag()
+  stopDraggingG()
+  showColorPicker.value = false
+  popoverOpen.value = false
+})
+
 watch(() => props.useType, (type) => {
   currentTab.value = type === 'both' ? 'pure' : type
 }, { immediate: true })
@@ -505,6 +517,7 @@ watch(() => props.modelValue, (newValue) => {
         :side-offset="3"
         :avoid-collisions="true"
         :collision-padding="8"
+        :inert="props.disabled"
         class="vcp vcp-content"
       >
         <div v-if="useType === 'both'" class="flex w-full mb-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
