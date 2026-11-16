@@ -1,6 +1,6 @@
 {
   "name": "vue3-gradient-color-picker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vue 3 color picker with solid swatches, HSV/alpha picker and linear/radial/conic gradient editor.",
   "type": "module",
   "license": "MIT",
